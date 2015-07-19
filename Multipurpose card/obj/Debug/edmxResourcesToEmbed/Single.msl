@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AuthenticationModelStoreContainer" CdmEntityContainer="AuthenticationEntities">
+    <EntitySetMapping Name="usersofsinglecards">
+      <EntityTypeMapping TypeName="AuthenticationModel.usersofsinglecard">
+        <MappingFragment StoreEntitySet="usersofsinglecard">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="passwords" ColumnName="passwords" />
+          <ScalarProperty Name="acc1" ColumnName="acc1" />
+          <ScalarProperty Name="acc1pass" ColumnName="acc1pass" />
+          <ScalarProperty Name="acc2" ColumnName="acc2" />
+          <ScalarProperty Name="acc2pass" ColumnName="acc2pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
