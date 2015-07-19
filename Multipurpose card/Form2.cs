@@ -16,5 +16,23 @@ namespace Multipurpose_card
         {
             InitializeComponent();
         }
+        public Form2(String acc1name,String acc2name,String name)
+        {
+               InitializeComponent();
+               button1.Text = acc1name;
+               button2.Text = acc2name;
+               label3.Text = name;
+               label4.Text = name;
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

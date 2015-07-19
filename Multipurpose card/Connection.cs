@@ -30,10 +30,10 @@ namespace Multipurpose_card
                     {
                         var check = (from x in authEntity.usersofsinglecards
                                      where x.userid == user
-                                     select new { x.acc1name, x.acc2name});
+                                     select new { x.acc1name, x.acc2name,x.username});
                         foreach(var s in check)
                         {
-                            result = s.acc1name+","+s.acc2name;
+                            result = s.acc1name+","+s.acc2name+","+s.username;
                             
                         }
                         return result;

@@ -32,6 +32,8 @@ namespace Multipurpose_card
                         
             label5.Text = acc1[0];
             label6.Text = acc1[1];
+            String name = acc1[2];
+
             
             label5.Refresh();
             label6.Refresh();
@@ -39,8 +41,11 @@ namespace Multipurpose_card
 
 
 
-            //Form2 obj2 = new Form2();
-            //obj2.Show();
+
+
+            Form2 obj2 = new Form2(label5.Text, label6.Text,name);
+          
+            obj2.Show();
 
        }
     }
