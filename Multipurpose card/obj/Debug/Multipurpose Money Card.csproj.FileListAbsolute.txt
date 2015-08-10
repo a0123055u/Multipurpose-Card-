@@ -12,3 +12,4 @@ c:\users\hp\documents\visual studio 2013\Projects\Multipurpose card\Multipurpose
 c:\users\hp\documents\visual studio 2013\Projects\Multipurpose card\Multipurpose card\bin\Debug\EntityFramework.SqlServer.dll
 c:\users\hp\documents\visual studio 2013\Projects\Multipurpose card\Multipurpose card\bin\Debug\EntityFramework.xml
 c:\users\hp\documents\visual studio 2013\Projects\Multipurpose card\Multipurpose card\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\hp\Documents\Visual Studio 2013\Projects\Multipurpose card\Multipurpose card\obj\Debug\Multipurpose_card.Form3.resources

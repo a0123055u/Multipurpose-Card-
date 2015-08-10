@@ -20,5 +20,14 @@ namespace Multipurpose_card
                 return values;
 
         }
+        public String getBankUrl(String bankname)
+        {
+            Connection connectback = new Connection();
+            String url = (connectback.getBankUrl1(bankname));
+            if (url != null)
+                return url;
+            else
+                return "Null in controller";
+        }
     }
 }

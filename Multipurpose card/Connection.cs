@@ -10,6 +10,9 @@ namespace Multipurpose_card
     {
         String result = "";
         String temp1;
+        String usernameforreturn = "";
+        String res;
+        String newresult;
         public String Authentication(String user, String password)
         {
            //SingleCardApplicationEntities urssinglecrd = new SingleCardApplicationEntities();
@@ -31,14 +34,16 @@ namespace Multipurpose_card
                     {
                         var check = (from x in likedobject.bankusers
                                      where x.userid == user
-                                     select new { x.username });
-                        String usernameforreturn;
+                                     select  x.username );
+                       
                         if(check!=null)
-                             usernameforreturn = check.FirstOrDefault().ToString();
+                             usernameforreturn = check.First().ToString();
                         var accuts = (from acc in likedobject.useraccounts
                                       where acc.userid == user
                                       select  ( acc.bankid ));
-                        List<String> list = accuts.ToList<string>();
+
+                      
+                        //List<String> list = accuts.ToList<string>();
                         //accuts.Count();
                         String[] bankid = new String[accuts.Count()];
                         int count=0;
@@ -52,7 +57,8 @@ namespace Multipurpose_card
                             }
                         }
                         int controller = bankid.Count();
-                        String[] banknames= new String[10];
+                        String[] banknames = new String[bankid.Count()];
+                        String[] Accids = new String[bankid.Count()];
                         for (int cc = 0; cc < controller; cc++)
                         {
                             //store current value and finds it 
@@ -62,14 +68,26 @@ namespace Multipurpose_card
                             var displaynames = (from bak in likedobject.banks
                                                 where bak.bankid == tt
                                                 select bak.bankname);
+                            //pass account number to the client
+                            var accutsids = (from acc in likedobject.useraccounts
+                                             where acc.userid == user && acc.bankid == tt
+                                             select  acc.accountid );
                             banknames[cc] = displaynames.FirstOrDefault().ToString();
-                        }
-                       
-                            result =String.Join(",",banknames);
-                        
+                            Accids[cc] = accutsids.FirstOrDefault().ToString();
 
-                        Console.WriteLine(result);
-                        return result;
+                        }
+                        if( (banknames.Count() != 1) && (Accids.Count()!=1))
+                        {
+                       
+                            
+                            res = String.Join(",", banknames) + "," +String.Join(",",Accids)+","+ usernameforreturn;
+                        }
+                        else if ((banknames.Count() == 1) && (Accids.Count() ==1))
+                        {
+                            res = String.Join(",", banknames) + "," + String.Join(",", Accids) + "," + usernameforreturn;
+                        }
+                        Console.WriteLine(res);
+                        return res;
                     }                       
                        
                     else
@@ -90,6 +108,25 @@ namespace Multipurpose_card
                
             }
            
+        }
+        public String getBankUrl1(String bankname1)
+        {
+            String result=" ";
+            try{
+              using (SingleCardApplicationEntities urlobject = new SingleCardApplicationEntities())
+              {
+                  var url = (from name in urlobject.banks
+                             where name.bankname == bankname1
+                             select name.bankurl);
+                  result = url.FirstOrDefault().ToString();
+                  return result;
+              }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                return result;
+            }
         }
     }
 }

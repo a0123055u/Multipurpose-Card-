@@ -27,13 +27,28 @@ namespace Multipurpose_card
             Controller contrl = new Controller();
             String accounts  = contrl.connectusingentity(textBox1.Text, textBox2.Text);
             char a = ',';
-
+             String name=" ";
+             String acc1id = " ";
+             String acc2id = " ";
             String[] acc1 = accounts.Split(a);
-                        
-            label5.Text = acc1[0];
-            label6.Text = acc1[1];
-            String name = acc1[2];
+            if (acc1.Count() == 5)
+            {
+                label5.Text = acc1[0];
+                label6.Text = acc1[1];
+                acc1id = acc1[2];
+                acc2id = acc1[3];
+               name = acc1[4];
+                
+            }
+            else
+            {
+                label5.Text = acc1[0];
+                label6.Text = "NA";
+                acc1id = acc1[1];
+                acc2id = "NA";
+                 name = acc1[2];
 
+            }
             
             label5.Refresh();
             label6.Refresh();
@@ -43,8 +58,8 @@ namespace Multipurpose_card
 
 
 
-            Form2 obj2 = new Form2(label5.Text, label6.Text,name);
-          
+
+            Form2 obj2 = new Form2(label5.Text, label6.Text,acc1id,acc2id,name);
             obj2.Show();
 
        }
