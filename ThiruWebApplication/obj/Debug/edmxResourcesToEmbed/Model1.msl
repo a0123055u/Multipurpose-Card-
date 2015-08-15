@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SingleCardApplicationModel11StoreContainer" CdmEntityContainer="SingleCardApplicationEntities11">
+    <EntitySetMapping Name="banks">
+      <EntityTypeMapping TypeName="SingleCardApplicationModel11.bank">
+        <MappingFragment StoreEntitySet="bank">
+          <ScalarProperty Name="bankid" ColumnName="bankid" />
+          <ScalarProperty Name="bankname" ColumnName="bankname" />
+          <ScalarProperty Name="bankurl" ColumnName="bankurl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bankusers">
+      <EntityTypeMapping TypeName="SingleCardApplicationModel11.bankuser">
+        <MappingFragment StoreEntitySet="bankuser">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="passwords" ColumnName="passwords" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SingleCardApplicationModel11.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="useraccounts">
+      <EntityTypeMapping TypeName="SingleCardApplicationModel11.useraccount">
+        <MappingFragment StoreEntitySet="useraccounts">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="bankid" ColumnName="bankid" />
+          <ScalarProperty Name="accountid" ColumnName="accountid" />
+          <ScalarProperty Name="accounttype" ColumnName="accounttype" />
+          <ScalarProperty Name="accountpassword" ColumnName="accountpassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

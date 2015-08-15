@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SingleCardApplicationModel11.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bank">
+    <Key>
+      <PropertyRef Name="bankid" />
+    </Key>
+    <Property Name="bankid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bankname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bankurl" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bankuser">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="userid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="passwords" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="useraccounts">
+    <Key>
+      <PropertyRef Name="accountid" />
+    </Key>
+    <Property Name="userid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bankid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="accountid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="accounttype" Type="varchar" MaxLength="10" />
+    <Property Name="accountpassword" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__useraccou__useri__208CD6FA">
+    <End Role="bankuser" Type="Self.bankuser" Multiplicity="1" />
+    <End Role="useraccounts" Type="Self.useraccounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bankuser">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="useraccounts">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SingleCardApplicationModel11StoreContainer">
+    <EntitySet Name="bank" EntityType="Self.bank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bankuser" EntityType="Self.bankuser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="useraccounts" EntityType="Self.useraccounts" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__useraccou__useri__208CD6FA" Association="Self.FK__useraccou__useri__208CD6FA">
+      <End Role="bankuser" EntitySet="bankuser" />
+      <End Role="useraccounts" EntitySet="useraccounts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
